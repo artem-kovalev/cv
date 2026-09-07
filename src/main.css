@@ -431,7 +431,7 @@ ol {
 .timeline::before {
   content: '';
   position: absolute;
-  left: 160px;
+  left: 180px;
   top: 0;
   bottom: 0;
   width: 1px;
@@ -440,7 +440,7 @@ ol {
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 180px 1fr;
   gap: 0 40px;
   padding-block: 40px;
   border-bottom: 1px solid var(--color-border);
@@ -458,8 +458,8 @@ ol {
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: 156px;
-  top: 44px;
+  left: 176px;
+  top: 46px;
   width: 9px;
   height: 9px;
   border-radius: 50%;
@@ -471,16 +471,21 @@ ol {
 }
 
 .timeline-item:first-child::before {
-  top: 4px;
+  top: 6px;
 }
 
 .timeline-meta {
-  padding-top: 2px;
+  padding-top: 3px;
+  padding-right: 28px;
   text-align: right;
+  /* match .timeline-date so the line box is the text box, not the inherited strut */
+  font-size: 13px;
+  line-height: 1.2;
 }
 
 .timeline-date {
   font-size: 13px;
+  line-height: 1.2;
   font-weight: 600;
   color: var(--color-muted);
   white-space: nowrap;
@@ -819,14 +824,20 @@ ol {
     grid-template-columns: 1fr;
     gap: 8px;
     padding-block: 32px;
+    /* clear the rail dot, which straddles x=0 with a 5px halo */
+    padding-left: 24px;
   }
   .timeline-item::before {
     left: -4px;
-    top: 6px;
+    top: 35px;
+  }
+  .timeline-item:first-child::before {
+    top: 3px;
   }
   .timeline-meta {
     text-align: left;
     padding-top: 0;
+    padding-right: 0;
   }
 
   .projects-grid {
