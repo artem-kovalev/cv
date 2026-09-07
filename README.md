@@ -53,16 +53,31 @@ cv/
 │   ├── main.css         ← all styles
 │   ├── main.js          ← nav, scroll animations
 │   ├── assets/
-│   │   ├── photo.jpg    ← profile photo
+│   │   ├── photo.jpg    ← profile photo (600×900, JPEG fallback)
+│   │   ├── photo.webp   ← same photo, served first via <picture>
 │   │   └── favicon.svg  ← favicon
-│   └── public/
-│       └── CNAME        ← custom domain, copied as-is into dist/
+│   └── public/          ← copied verbatim into dist/
+│       ├── CNAME        ← custom domain
+│       ├── og.jpg       ← 1200×630 social preview card
+│       └── fonts/       ← self-hosted Inter (see the FONT note in main.css)
 ├── .github/workflows/
 │   └── deploy.yml       ← GitHub Actions CI/CD
 ├── vite.config.js
 ├── package.json
 └── README.md
 ```
+
+## Theming & Print
+
+`main.css` drives everything from CSS custom properties on `:root`. A
+`@media (prefers-color-scheme: dark)` block re-declares the same tokens, so dark mode
+needs no extra markup — if you add a colour, add it as a token rather than a literal or
+it will not adapt. There is also a `@media print` block (the CV is meant to be saved as
+PDF) and a `@media (prefers-reduced-motion: reduce)` block that lands the scroll reveal
+visible instead of animating it.
+
+Note that the print viewport is roughly 816px, so the `max-width: 900px` rules apply on
+paper too; the print block is placed last and overrides them where needed.
 
 ## Updating Content
 

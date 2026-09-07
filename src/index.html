@@ -10,6 +10,9 @@
       content="Artem Kovalev — Software Engineer with 15+ years building backend systems, distributed architecture, and cloud-native applications. Based in Winterswijk, Netherlands."
     />
     <meta name="author" content="Artem Kovalev" />
+    <link rel="canonical" href="https://akovalev.me/" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Artem Kovalev — Software Engineer" />
@@ -18,7 +21,14 @@
       content="Software Engineer with 15+ years building reliable backend systems, distributed architecture, and cloud-native applications. Based in the Netherlands."
     />
 
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:url" content="https://akovalev.me/" />
+    <meta property="og:image" content="https://akovalev.me/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Artem Kovalev — Senior Software Engineer" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://akovalev.me/og.jpg" />
     <meta name="twitter:title" content="Artem Kovalev — Software Engineer" />
     <meta
       name="twitter:description"
@@ -26,11 +36,12 @@
     />
 
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/inter-latin-var.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
     <link rel="stylesheet" href="./main.css" />
   </head>
@@ -59,7 +70,7 @@
         <div class="container hero-grid">
           <div class="hero-text fade-up">
             <p class="hero-label">Senior Software Engineer</p>
-            <h1 class="hero-name">Artem<br />Kovalev</h1>
+            <h1 class="hero-name">Artem <br />Kovalev</h1>
             <p class="hero-summary">
               Senior software engineer with 15+ years across backend systems, distributed
               architecture, and cloud-native applications — from requirements analysis through
@@ -125,13 +136,18 @@
           </div>
           <div class="hero-photo-wrap fade-up fade-up--delay">
             <div class="hero-photo-ring">
-              <img
-                src="./assets/photo.jpg"
-                alt="Artem Kovalev"
-                class="hero-photo"
-                width="320"
-                height="320"
-              />
+              <picture>
+                <source srcset="./assets/photo.webp" type="image/webp" />
+                <img
+                  src="./assets/photo.jpg"
+                  alt="Artem Kovalev"
+                  class="hero-photo"
+                  width="600"
+                  height="900"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </div>
         </div>
@@ -858,7 +874,7 @@
               <p class="project-desc">
                 Cloud-connected mobile safety platform for lone workers — real-time GPS tracking,
                 SOS alerts, and encrypted communication. Led full-stack development and architecture
-                as Team Lead, including the .NET Framework → .NET 7 → .NET 10 migrations.
+                as Team Lead, including the .NET Framework 4.8, .NET 7 and .NET 10 migrations.
               </p>
               <div class="tags">
                 <span class="tag">.NET 10</span><span class="tag">.NET 7</span
