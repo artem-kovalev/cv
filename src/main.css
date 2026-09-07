@@ -431,7 +431,7 @@ ol {
 .timeline::before {
   content: '';
   position: absolute;
-  left: 140px;
+  left: 160px;
   top: 0;
   bottom: 0;
   width: 1px;
@@ -440,7 +440,7 @@ ol {
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: 160px 1fr;
   gap: 0 40px;
   padding-block: 40px;
   border-bottom: 1px solid var(--color-border);
@@ -458,7 +458,7 @@ ol {
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: 136px;
+  left: 156px;
   top: 44px;
   width: 9px;
   height: 9px;

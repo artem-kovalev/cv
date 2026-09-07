@@ -32,11 +32,15 @@ Your site will be live at `https://artem-kovalev.github.io/cv/` (or your custom 
 
 ### Custom domain (optional)
 
-Add a `CNAME` file to `src/` with your domain, e.g.:
+Add a `CNAME` file to `src/public/` with your domain, e.g.:
 
 ```
-cv.artemkovalev.dev
+akovalev.me
 ```
+
+Vite copies everything in `src/public/` verbatim into `dist/`, so the file ships with the
+Pages artifact. A `CNAME` at the repo root would **not** be picked up — the deploy workflow
+uploads `dist/` only.
 
 Then configure the DNS record with your provider.
 
@@ -48,9 +52,11 @@ cv/
 │   ├── index.html       ← main page (all content here)
 │   ├── main.css         ← all styles
 │   ├── main.js          ← nav, scroll animations
-│   └── assets/
-│       ├── photo.jpg    ← profile photo
-│       └── favicon.svg  ← favicon
+│   ├── assets/
+│   │   ├── photo.jpg    ← profile photo
+│   │   └── favicon.svg  ← favicon
+│   └── public/
+│       └── CNAME        ← custom domain, copied as-is into dist/
 ├── .github/workflows/
 │   └── deploy.yml       ← GitHub Actions CI/CD
 ├── vite.config.js
